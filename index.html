@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>ComandoBot — Las 4 Historias</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Logo ComandoBot -->
+<img src="logocomandosinfondo.png" alt="Logo ComandoBot" class="logo-img">
+<!-- Estrellas de fondo -->
+<div class="estrellas" id="estrellas"></div>
+
+<!-- ===== PANTALLA DE INICIO (MENÚ) ===== -->
+<div id="menu-principal" class="menu-container active-view">
+ <div class="logo-grande" style="text-align: center;">
+  <img src="logocomandosinfondo.png" alt="Logo ComandoBot" style="width: 250px; height: auto;">
+</div>
+  <div class="subtitulo" style="text-align: center; margin-bottom: 2rem;">Elige una historia para comenzar</div>
+  
+  <div class="menu-cards">
+    <!-- Mario -->
+    <div class="menu-card" data-historia="mario">
+      <div class="menu-card-emoji">🦥</div>
+      <div class="menu-card-title">Mario</div>
+      <div class="menu-card-desc">El cliente perezoso que cambió su forma de comprar</div>
+      <div class="menu-card-status" id="status-mario">⚪ No visto</div>
+    </div>
+    
+    <!-- Juan Sebastián -->
+    <div class="menu-card" data-historia="juan">
+      <div class="menu-card-emoji">👟</div>
+      <div class="menu-card-title">Juan Sebastián</div>
+      <div class="menu-card-desc">El dueño del local que quería más ventas</div>
+      <div class="menu-card-status" id="status-juan">⚪ No visto</div>
+    </div>
+    
+    <!-- Francisco Javier -->
+    <div class="menu-card" data-historia="francisco">
+      <div class="menu-card-emoji">💻</div>
+      <div class="menu-card-title">Francisco Javier</div>
+      <div class="menu-card-desc">El técnico que implementa la solución</div>
+      <div class="menu-card-status" id="status-francisco">⚪ No visto</div>
+    </div>
+    
+    <!-- Carlos (bloqueado inicialmente) -->
+    <div class="menu-card locked" id="carlos-card" data-historia="carlos">
+      <div class="menu-card-emoji">🔒</div>
+      <div class="menu-card-title">Carlos</div>
+      <div class="menu-card-desc">El visionario que creó ComandoBot</div>
+      <div class="menu-card-status" id="status-carlos">🔒 Bloqueado</div>
+      <div class="menu-card-lock-msg" id="carlos-lock-msg"></div>
+    </div>
+  </div>
+  
+  <div class="menu-progreso">
+    <div class="menu-progreso-text" id="progreso-text">📊 0/3 historias vistas para desbloquear a Carlos</div>
+    <div class="menu-progreso-bar">
+      <div class="menu-progreso-fill" id="progreso-fill" style="width: 0%"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== CONTENEDOR DE HISTORIAS ===== -->
+<div id="historia-container" style="display: none;">
+  <div class="progreso" id="progreso"></div>
+
+  <!-- ============================================ -->
+  <!-- HISTORIA 1: MARIO (6 slides) -->
+  <!-- ============================================ -->
+  <div class="slide slide-mario-0" id="slide-mario-0">
+    <div class="emoji-big">🤖</div>
+    <div class="logo-grande">ComandoBot</div>
+    <div class="subtitulo">La historia de Mario</div>
+    <div class="burbuja">
+      ¿Sabías que la gente pierde hasta <strong>45 minutos</strong> caminando en centros comerciales buscando lo que quiere? 😅<br><br>
+      Te contamos la historia de <strong>Mario</strong>... y cómo todo cambió.
+    </div>
+  </div>
+
+  <div class="slide slide-mario-1" id="slide-mario-1">
+    <div class="emoji-big">🦥</div>
+    <div class="titulo">Este es Mario</div>
+    <div class="subtitulo">Vive en Palmira, Valle. Cada 8 días va al centro comercial.</div>
+    <div class="burbuja">
+      Mario tiene un problema... es <strong>muy perezoso</strong> 😂<br><br>
+      No le gusta caminar. No le gusta preguntar. No le gusta perder el tiempo buscando tiendas que ni sabe si tienen lo que quiere.
+    </div>
+  </div>
+
+  <div class="slide slide-mario-2" id="slide-mario-2">
+    <div class="emoji-big">😩</div>
+    <div class="titulo white">El problema de antes</div>
+    <div class="subtitulo">En el centro comercial de siempre, Mario sufría...</div>
+    <div class="comparacion">
+      <div class="comp-box comp-malo">
+        <div class="comp-titulo">❌ Sin ComandoBot</div>
+        <ul class="comp-lista">
+          <li>🚶 Caminar sin rumbo</li>
+          <li>❓ Preguntar a cada rato</li>
+          <li>😤 No encontrar la tienda</li>
+          <li>⏰ 45 min perdidos</li>
+          <li>🥵 Llegar cansado a casa</li>
+        </ul>
+      </div>
+      <div class="comp-box comp-bueno">
+        <div class="comp-titulo">✅ Con ComandoBot</div>
+        <ul class="comp-lista">
+          <li>📱 Escanear y listo</li>
+          <li>💬 Preguntar al bot</li>
+          <li>🎯 Ir directo a la tienda</li>
+          <li>⚡ 2 min y ya sabe todo</li>
+          <li>😎 Tranquilo y feliz</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide slide-mario-3" id="slide-mario-3">
+    <div class="emoji-big">📱</div>
+    <div class="titulo dark">Un día Mario va al Centro Comercial Goku</div>
+    <div class="subtitulo dark">Y ve algo diferente en la entrada...</div>
+    <div class="burbuja dark">
+      🔲 Un código QR con el letrero:<br><br>
+      <strong style="font-size:1.2rem;">"Escanéame y encuentra lo que buscas en segundos"</strong><br><br>
+      Mario lo escanea con su celular... y su vida cambia para siempre 🤯
+    </div>
+    <div class="qr-sim">
+      <div class="qr-cell"></div><div class="qr-cell w"></div><div class="qr-cell"></div><div class="qr-cell w"></div><div class="qr-cell"></div>
+      <div class="qr-cell w"></div><div class="qr-cell"></div><div class="qr-cell w"></div><div class="qr-cell"></div><div class="qr-cell w"></div>
+      <div class="qr-cell"></div><div class="qr-cell w"></div><div class="qr-cell"></div><div class="qr-cell w"></div><div class="qr-cell"></div>
+      <div class="qr-cell w"></div><div class="qr-cell"></div><div class="qr-cell w"></div><div class="qr-cell"></div><div class="qr-cell w"></div>
+      <div class="qr-cell"></div><div class="qr-cell w"></div><div class="qr-cell"></div><div class="qr-cell w"></div><div class="qr-cell"></div>
+    </div>
+  </div>
+
+  <div class="slide slide-mario-4" id="slide-mario-4">
+    <div class="emoji-big">💬</div>
+    <div class="titulo dark">ComandoBot responde</div>
+    <div class="chat-demo">
+      <div class="msg bot">
+        <span class="msg-avatar">🤖</span>
+        <div class="msg-burbuja">¡Hola! Soy ComandoBot 👋 ¿Qué buscas hoy en el CC Goku?</div>
+      </div>
+      <div class="msg user">
+        <div class="msg-burbuja">Busco unos zapatos Nike Air Max</div>
+      </div>
+      <div class="msg bot">
+        <span class="msg-avatar">🤖</span>
+        <div class="msg-burbuja">👟 Nike Air Max solo lo tiene <strong>Polo Sport</strong>, piso 2, local 214. ¡A 3 minutos de donde estás!</div>
+      </div>
+      <div class="msg user">
+        <div class="msg-burbuja">¿Tienen talla 42?</div>
+      </div>
+      <div class="msg bot">
+        <span class="msg-avatar">🤖</span>
+        <div class="msg-burbuja">✅ Sí tienen talla 42. Precio: $320.000. ¿Quieres que te muestre cómo llegar?</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide slide-mario-5" id="slide-mario-5">
+    <div class="emoji-big">🏆</div>
+    <div class="titulo">Mario llegó directo. Sin caminar de más.</div>
+    <div class="subtitulo">Y el Centro Comercial Goku ganó un cliente feliz.</div>
+    <div class="stats">
+      <div class="stat-box">
+        <div class="stat-num">2'</div>
+        <div class="stat-label">Para encontrar la tienda</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">0</div>
+        <div class="stat-label">Vueltas innecesarias</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">😎</div>
+        <div class="stat-label">Mario feliz y sin cansancio</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- HISTORIA 2: JUAN SEBASTIÁN (4 slides) -->
+  <!-- ============================================ -->
+  <div class="slide slide-juan-0" id="slide-juan-0">
+    <div class="emoji-big">👟</div>
+    <div class="titulo">Juan Sebastián</div>
+    <div class="subtitulo">Dueño de "Polo Sport" en el CC Goku</div>
+    <div class="burbuja">
+      Juan tiene un local de zapatos. Abre de <strong>10am a 8pm</strong>... pero el CC abre de <strong>8am a 10pm</strong> 😬<br><br>
+      Se le escapan ventas porque la gente pasa cuando él no está.
+    </div>
+  </div>
+
+  <div class="slide slide-juan-1" id="slide-juan-1">
+    <div class="emoji-big">📱</div>
+    <div class="titulo dark">La solución: QR en la vitrina</div>
+    <div class="subtitulo dark">Juan pone un código QR en la parte EXTERNA de su local</div>
+    <div class="burbuja dark">
+      🔲 Clientes escanean aunque el local esté cerrado<br><br>
+      📲 Llegan a una página con su WhatsApp integrado<br><br>
+      🤖 El bot les dice horarios, stock y precios
+    </div>
+    <div class="qr-sim" style="margin-top: 1rem;">
+      <div class="qr-cell"></div><div class="qr-cell w"></div><div class="qr-cell"></div><div class="qr-cell w"></div><div class="qr-cell"></div>
+      <div class="qr-cell w"></div><div class="qr-cell"></div><div class="qr-cell w"></div><div class="qr-cell"></div><div class="qr-cell w"></div>
+      <div class="qr-cell"></div><div class="qr-cell w"></div><div class="qr-cell"></div><div class="qr-cell w"></div><div class="qr-cell"></div>
+      <div class="qr-cell w"></div><div class="qr-cell"></div><div class="qr-cell w"></div><div class="qr-cell"></div><div class="qr-cell w"></div>
+      <div class="qr-cell"></div><div class="qr-cell w"></div><div class="qr-cell"></div><div class="qr-cell w"></div><div class="qr-cell"></div>
+    </div>
+  </div>
+
+  <div class="slide slide-juan-2" id="slide-juan-2">
+    <div class="emoji-big">💬</div>
+    <div class="titulo dark">Ejemplo de conversación</div>
+    <div class="chat-demo">
+      <div class="msg user">
+        <div class="msg-burbuja">Hola, ¿tienen zapatos Nike Air Max talla 42?</div>
+      </div>
+      <div class="msg bot">
+        <span class="msg-avatar">🤖</span>
+        <div class="msg-burbuja">¡Sí! Tenemos 3 pares en talla 42. Precio: $320.000. Abrimos de 10am a 8pm. ¿Quieres que apartemos uno?</div>
+      </div>
+      <div class="msg user">
+        <div class="msg-burbuja">Sí, por favor. Voy en 1 hora</div>
+      </div>
+      <div class="msg bot">
+        <span class="msg-avatar">🤖</span>
+        <div class="msg-burbuja">✅ Apartado listo. Te esperamos. Código de reserva: #NK42</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide slide-juan-3" id="slide-juan-3">
+    <div class="emoji-big">⚠️</div>
+    <div class="titulo white">¿Y si el cliente no entra al local?</div>
+    <div class="burbuja">
+      No hay problema 🤝<br><br>
+      Si el cliente no pasa por el local después de escanear, el <strong>WhatsApp del CC Goku</strong> le sugiere:<br><br>
+      📍 "Ya que estás aquí, ¿quieres conocer otras tiendas?"<br>
+      🎯 "Te recomendamos: Zapatos Deportivos, Ropa Casual, Tecnología..."<br><br>
+      <strong>El centro comercial gana, los locales ganan, todos ganan.</strong>
+    </div>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- HISTORIA 3: FRANCISCO JAVIER (3 slides) -->
+  <!-- ============================================ -->
+  <div class="slide slide-francisco-0" id="slide-francisco-0">
+    <div class="emoji-big">💻</div>
+    <div class="titulo">Francisco Javier</div>
+    <div class="subtitulo">El técnico que implementa ComandoBot en el CC</div>
+    <div class="burbuja">
+      Francisco visita a Juan Sebastián y le explica<br><br>
+      <strong>"No es solo un QR. Es un sistema completo."</strong>
+    </div>
+  </div>
+
+  <div class="slide slide-francisco-1" id="slide-francisco-1">
+    <div class="emoji-big">📦</div>
+    <div class="titulo dark">¿Cómo funciona?</div>
+    <div class="burbuja dark">
+      <strong>Paso 1:</strong> Juan se registra en nuestra app web<br>
+      <strong>Paso 2:</strong> Sube sus productos (foto, precio, tallas)<br>
+      <strong>Paso 3:</strong> El agente IA del CC aprende de su inventario<br>
+      <strong>Paso 4:</strong> Los clientes preguntan y el bot responde con datos REALES<br>
+      <strong>Paso 5:</strong> Juan recibe reportes de cuántos clientes preguntaron por sus productos
+    </div>
+  </div>
+
+  <div class="slide slide-francisco-2" id="slide-francisco-2">
+    <div class="emoji-big">🤖</div>
+    <div class="titulo white">El ecosistema completo</div>
+    <div class="stats" style="flex-direction: column; gap: 0.8rem;">
+      <div class="stat-box" style="background: rgba(255,255,255,0.2);">
+        <div class="stat-num" style="font-size: 1.5rem;">🏪 Local</div>
+        <div class="stat-label">Sube productos → El bot los ofrece</div>
+      </div>
+      <div class="stat-box" style="background: rgba(255,255,255,0.2);">
+        <div class="stat-num" style="font-size: 1.5rem;">🛒 Cliente</div>
+        <div class="stat-label">Pregunta → Recibe respuesta precisa → Compra</div>
+      </div>
+      <div class="stat-box" style="background: rgba(255,255,255,0.2);">
+        <div class="stat-num" style="font-size: 1.5rem;">🏢 Centro Comercial</div>
+        <div class="stat-label">Más ventas, clientes felices, datos de tráfico</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- HISTORIA 4: CARLOS (3 slides) -->
+  <!-- ============================================ -->
+  <div class="slide slide-carlos-0" id="slide-carlos-0">
+    <div class="emoji-big">🧠</div>
+    <div class="titulo">Carlos</div>
+    <div class="subtitulo">El creador de ComandoBot</div>
+    <div class="burbuja">
+      Carlos fue desarrollador de software. Un día fue a un CC y perdió 1 hora buscando una tienda 💢<br><br>
+      Pensó: <strong>"Esto es 2025... ¿cómo no hay una IA que me guíe?"</strong><br><br>
+      Y así nació ComandoBot.
+    </div>
+  </div>
+
+  <div class="slide slide-carlos-1" id="slide-carlos-1">
+    <div class="emoji-big">🎯</div>
+    <div class="titulo dark">La necesidad que identificó Carlos</div>
+    <div class="comparacion">
+      <div class="comp-box comp-malo">
+        <div class="comp-titulo">Antes</div>
+        <ul class="comp-lista">
+          <li>Dueños pierden ventas fuera de horario</li>
+          <li>Clientes caminan sin rumbo</li>
+          <li>CC no sabe qué buscan los visitantes</li>
+          <li>Sin datos, sin mejora</li>
+        </ul>
+      </div>
+      <div class="comp-box comp-bueno">
+        <div class="comp-titulo">Con ComandoBot</div>
+        <ul class="comp-lista">
+          <li>Ventas 24/7 vía WhatsApp</li>
+          <li>Clientes van directo al grano</li>
+          <li>CC tiene datos y analytics</li>
+          <li>Experiencia del futuro 🔥</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide slide-carlos-2" id="slide-carlos-2">
+    <div class="emoji-big">🌍</div>
+    <div class="titulo">Hoy, ComandoBot está cambiando la forma de ir de compras</div>
+    <div class="stats">
+      <div class="stat-box">
+        <div class="stat-num">+50</div>
+        <div class="stat-label">Centros comerciales</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">+2,000</div>
+        <div class="stat-label">Locales conectados</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">-70%</div>
+        <div class="stat-label">Tiempo perdido</div>
+      </div>
+    </div>
+    <div class="burbuja">
+      <strong>Carlos lo logró.</strong> Tu centro comercial puede ser el próximo. 🚀
+    </div>
+  </div>
+
+  <!-- Navegación -->
+  <div class="nav" id="nav">
+    <button class="btn-nav btn-volver-menu" id="btnVolverMenu">🏠 Menú</button>
+    <button class="btn-nav btn-anterior" id="btnAnterior" style="display:none">← Anterior</button>
+    <button class="btn-nav btn-siguiente" id="btnSiguiente">Siguiente →</button>
+  </div>
+</div>
+
+<!-- Modal de verificación de edad -->
+<div id="modal-edad" class="modal">
+  <div class="modal-content">
+    <div class="modal-emoji">🔞</div>
+    <div class="modal-titulo">Verificación de edad</div>
+    <div class="modal-text">Para ver la historia de Carlos, debes confirmar que eres mayor de 18 años.</div>
+    <div class="modal-buttons">
+      <button id="btn-mayor" class="btn-modal btn-mayor">✅ Soy mayor de 18</button>
+      <button id="btn-menor" class="btn-modal btn-menor">❌ Soy menor</button>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
